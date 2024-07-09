@@ -1,8 +1,13 @@
+import Buttons from "../elements/Buttons";
+import Cards from "../elements/Cards";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="w-full min-h-screenm-auto">
+      <Buttons />
+      <Cards />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
