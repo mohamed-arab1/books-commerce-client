@@ -1,11 +1,11 @@
-import Buttons from "../elements/Buttons";
-import Cards from "../elements/Cards";
+import BestSellerBooks from "../components/BestSellerBooks";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <div className="w-full min-h-screenm-auto">
-      <Buttons />
-      <Cards />
+      <BestSellerBooks />
+      <Footer />
     </div>
   );
 };
