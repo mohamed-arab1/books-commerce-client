@@ -19,7 +19,8 @@ export default {
         "DMSerifDisplay": ["DM Serif Display"],
         "raleway": ["Raleway"],
         "kantumruy": ['Kantumruy Pro'],
-        "poppins": ["Poppins"]
+        "poppins": ["Poppins"],
+        "gothic":["Gothic A1"]
       },
       fontSize: {
         "18": "18px",
@@ -44,7 +45,21 @@ export default {
         "star": "#FFC444",
         "bgCard": "#F8F8F8",
         "buttons": '#D9D9D9',
-        "title": "#26264F"
+        "title": "#26264F",
+       "bgfooter": "#2F3367",
+       "textFooter":"#FFFFFF",
+       "search":"#444B8C",
+       'custom-color': {
+          DEFAULT:'#F8CC77',
+          '16': 'rgba(248, 204, 119, 0.16)',
+          '90': 'rgba(248, 204, 119, 0.9)',
+          '80': 'rgba(248, 204, 119, 0.8)',
+          '100':'rgba(253, 209, 121)'
+        },
+        backgroundImage: {
+          'custom-gradient': 'linear-gradient(to right, rgba(248, 204, 119, 0.8) 80%, rgba(248, 204, 119, 0.16) 20%)',
+        },
+
       }
     },
   },

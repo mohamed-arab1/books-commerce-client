@@ -1,17 +1,16 @@
+
+import BestSellerBooks from "../components/BestSellerBooks";
+import Footer from "../components/Footer";
 import MiddleSection from "../components/MiddleSection";
-import Buttons from "../elements/Buttons";
-import Cards from "../elements/Cards";
 
 const Home = () => {
   return (
-    <main>
-      <div className="w-full min-h-screenm-auto">
-        <Buttons />
-        <Cards />
-      </div>
+    <div className="w-full min-h-screenm-auto">
+      <BestSellerBooks />
       <MiddleSection />
-    </main>
-  );
+      <Footer />
+    </div>
+  )
 };
 
 export default Home;

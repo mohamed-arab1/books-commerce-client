@@ -20,7 +20,7 @@ export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig>= createAsync
   "books/fetchBooks",
   async () => {
     const response = await axios.get<Book[]>(
-      "https://freetestapi.com/api/v1/books"
+      `https://freetestapi.com/api/v1/books`
     );
     return response.data;
   }
