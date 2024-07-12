@@ -1,7 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, AsyncThunk  } from "@reduxjs/toolkit";
 import { BooksState } from "../data";
 import { Book } from "../data";
 import axios from "axios";
+import { RootState, AppDispatch } from "./store";
 
 const initialState: BooksState = {
   books: [],
@@ -10,7 +11,14 @@ const initialState: BooksState = {
   selectedGenres: [],
 };
 
-export const fetchBooks = createAsyncThunk<Book[]>(
+interface AsyncThunkConfig {
+  state: RootState;
+  dispatch: AppDispatch;
+  rejectValue: string;
+}
+
+export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig>= createAsyncThunk<Book[], void, AsyncThunkConfig>(
+
   "books/fetchBooks",
   async () => {
     const response = await axios.get<Book[]>(`http://localhost:3030/api/books`);
