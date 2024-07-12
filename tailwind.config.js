@@ -49,6 +49,7 @@ export default {
        "bgfooter": "#2F3367",
        "textFooter":"#FFFFFF",
        "search":"#444B8C",
+       "active":"#00C9EB",
        'custom-color': {
           DEFAULT:'#F8CC77',
           '16': 'rgba(248, 204, 119, 0.16)',

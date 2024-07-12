@@ -8,6 +8,7 @@ const initialState: BooksState = {
   books: [],
   status: "idle",
   error: null,
+  selectedGenres: [],
 };
 
 interface AsyncThunkConfig {
@@ -17,11 +18,10 @@ interface AsyncThunkConfig {
 }
 
 export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig>= createAsyncThunk<Book[], void, AsyncThunkConfig>(
+
   "books/fetchBooks",
   async () => {
-    const response = await axios.get<Book[]>(
-      `https://freetestapi.com/api/v1/books`
-    );
+    const response = await axios.get<Book[]>(`http://localhost:3030/api/books`);
     return response.data;
   }
 );
@@ -29,7 +29,11 @@ export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig>= createAsync
 const BoockSlice = createSlice({
   name: "books",
   initialState,
-  reducers: {},
+  reducers: {
+    setGenres: (state, action) => {
+      state.selectedGenres = action.payload;
+  },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
@@ -45,4 +49,5 @@ const BoockSlice = createSlice({
       });
   },
 });
+export const { setGenres } = BoockSlice.actions;
 export default BoockSlice.reducer;

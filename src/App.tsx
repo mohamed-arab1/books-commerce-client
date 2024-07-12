@@ -1,4 +1,3 @@
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -14,12 +13,12 @@ function App() {
         <Route path="/" element={<Home />} />
       </Route>
     )
-  )
+  );
   return (
     <>
       <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
