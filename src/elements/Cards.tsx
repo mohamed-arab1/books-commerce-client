@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
 import { fetchBooks } from "../rtk/BoockSlice";
 export default function Cards() {
-
   const dispatch: AppDispatch = useDispatch();
   const books = useSelector((state: RootState) => state.books.books);
   const status = useSelector((state: RootState) => state.books.status);
   const error = useSelector((state: RootState) => state.books.error);
+  const selectedGenres = useSelector(
+    (state: RootState) => state.books.selectedGenres
+  );
 
   useEffect(() => {
     if (status === "idle") {
@@ -17,13 +19,20 @@ export default function Cards() {
     }
   }, [status, dispatch]);
 
+  console.log(books);
+  const filteredBooks =
+    selectedGenres.length === 0
+      ? books
+      : books.filter((book) =>
+          selectedGenres.some((genre) => book.genre.includes(genre))
+        );
   return (
     <>
       <section className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
         {status === "loading" && <p>Loading...</p>}
         {status === "failed" && <p>Error: {error}</p>}
         {status === "succeeded" &&
-          books.map((book: Book) => (
+          filteredBooks.map((book: Book) => (
             <div
               key={book.id}
               className="h-CardHeight m-auto my-5 lg:w-CardWidth w-smallCardWidth bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
@@ -40,11 +49,14 @@ export default function Cards() {
                   {book.description.substring(0, 40)}
                 </article>
                 <div className="flex items-center justify-between">
-                  <span className="font-kantumruy font-medium ">$100</span>
-                  <div className=" w-3/6 px-3 justify-between text-star flex">
-                    <FaRegStar className="w-[30px] h-[30px]" />
-                    <FaRegStar className="w-[30px] h-[30px]" />
-                    <FaRegStar className="w-[30px] h-[30px]" />
+                  <span className="font-kantumruy font-medium ">
+                    ${book.price}
+                  </span>
+                  <div className=" w-3/6 px-3 items-center justify-center text-star flex">
+                    <span className="ms-auto flex items-center">
+                      {book.rate}
+                      <FaRegStar className="  w-[20px] h-[20]" />
+                    </span>
                   </div>
                 </div>
                 <div className="flex items-center gap-x-3">
