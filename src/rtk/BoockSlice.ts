@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { BooksState } from "../data";
-import { Book } from "../data";
+import { BooksState } from "../globalType/bookType";
+import { Book } from "../globalType/bookType";
 import axios from "axios";
+import { url } from "../Url";
 
 const initialState: BooksState = {
   books: [],
@@ -13,7 +14,7 @@ const initialState: BooksState = {
 export const fetchBooks = createAsyncThunk<Book[]>(
   "books/fetchBooks",
   async () => {
-    const response = await axios.get<Book[]>(`http://localhost:3030/api/books`);
+    const response = await axios.get<Book[]>(`${url}/books`);
     return response.data;
   }
 );
@@ -24,7 +25,7 @@ const BoockSlice = createSlice({
   reducers: {
     setGenres: (state, action) => {
       state.selectedGenres = action.payload;
-  },
+    },
   },
   extraReducers: (builder) => {
     builder

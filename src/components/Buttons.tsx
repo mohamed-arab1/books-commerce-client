@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setGenres } from "../rtk/BoockSlice";
-import HeaderText from "../components/HeaderText";
+import HeaderText from "./HeaderText";
 import { RootState } from "../rtk/store";
+import Button from "../elements/Button";
 
 const buttons = [
   { id: 1, name: "All" },
@@ -28,20 +29,11 @@ export default function Buttons() {
     <div className="font-poppins font-bold gap-y-[70px] flex flex-col my-[60px]">
       <HeaderText text="Best Seller Books" />
       <div className="lg:mx-20 gap-y-3 lg:gap-x-3 text-[18px] grid  lg:grid-cols-4 grid-cols-2 lg:w-3/6 md:w-3/6 w-4/6 m-auto  lg:justify-between items-center">
-        {buttons.map((button) => (
-          <button
-            key={button.id}
-            className={`bg-buttons w-button m-auto h-button flex justify-center items-center ${
-              selectedGenres.includes(button.name) ||
-              (button.name === "All" && selectedGenres.length === 0)
-                ? "bg-active text-white"
-                : ""
-            }`}
-            onClick={() => handleClick(button.name)}
-          >
-            {button.name}
-          </button>
-        ))}
+        <Button
+          buttons={buttons}
+          handleClick={handleClick}
+          selectedGenres={selectedGenres}
+        />
       </div>
     </div>
   );

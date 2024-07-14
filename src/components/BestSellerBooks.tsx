@@ -1,5 +1,5 @@
-import Buttons from "../elements/Buttons";
-import Cards from "../elements/Cards";
+import Buttons from "./Buttons";
+import Cards from "./Cards";
 
 
 export default function BestSellerBooks() {

@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       height: {
-        "CardHeight": "539px",
-        "imageCard": "300px",
+        "CardHeight": "390px",
+        "imageCard": "150px",
         "smallImageCard": "250px",
         "button": "53px"
 
@@ -27,7 +27,7 @@ export default {
         "16": "16px"
       },
       width: {
-        "CardWidth": "337px",
+        "CardWidth": "280px",
         "smallCardWidth": "260px",
         "button": "123px"
       },
