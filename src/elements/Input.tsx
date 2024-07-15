@@ -6,7 +6,7 @@ type TypeInput<TypeFieldValues extends FieldValues> = {
     label:string,
     type?:string,
     register:UseFormRegister<TypeFieldValues>,
-    error?:string
+    error?:string,
 }
 
 
