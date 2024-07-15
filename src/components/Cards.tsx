@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-
 import { Book } from "../globalType/bookType";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
 import { fetchBooks } from "../rtk/BoockSlice";
 import Card from "../elements/Card";
+import LoadingSpaneer from "../elements/LoadingSpaneer";
 export default function Cards() {
   const dispatch: AppDispatch = useDispatch();
   const books = useSelector((state: RootState) => state.books.books);
@@ -28,11 +28,20 @@ export default function Cards() {
         );
   return (
     <>
-      <section className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
-        {status === "loading" && <p>Loading...</p>}
+      <section className="w-full h-full">
+        {status === "loading" && (
+          <div className=" w-full h-[400px] flex items-center justify-center">
+            <LoadingSpaneer />
+          </div>
+        )}
         {status === "failed" && <p>Error: {error}</p>}
-        {status === "succeeded" &&
-          filteredBooks.map((book: Book) => <Card book={book} />)}
+        {status === "succeeded" && (
+          <div className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
+            {filteredBooks.map((book: Book) => (
+              <Card book={book} />
+            ))}
+          </div>
+        )}
       </section>
     </>
   );
