@@ -40,10 +40,10 @@ export default function Card({ book }: CardProps) {
             src={book.cover_image}
             className="w-[40px] h-[40px] rounded-full"
           />
-          <h1 className="font-DMSerifDisplay text-18">{book.author}</h1>
+          <h1 className="font-DMSerifDisplay text-18">{book.author.substring(0,15)}</h1>
         </div>
       </div>
-      <div className="flex justify-between my-2">
+      <div className="flex justify-between my-4">
         <button>
           <BsCart3 className="text-[19px]  text-star" />
         </button>

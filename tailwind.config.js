@@ -6,10 +6,14 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+"phon":"499px"
+
+      },
       height: {
-        "CardHeight": "390px",
+        "CardHeight": "400px",
         "imageCard": "150px",
-        "smallImageCard": "250px",
+        "smallImageCard": "150px",
         "button": "53px"
 
       },
@@ -29,7 +33,7 @@ export default {
       width: {
         "CardWidth": "280px",
         "smallCardWidth": "260px",
-        "button": "123px"
+        "button": "95px"
       },
       borderRadius: {
         "card": "10px"
