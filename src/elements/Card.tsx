@@ -13,7 +13,7 @@ export default function Card({ book }: CardProps) {
 
   return (
     <div
-      key={book.id}
+      key={book._id}
       className="h-CardHeight m-auto my-5 lg:w-CardWidth w-smallCardWidth bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
     >
       <img

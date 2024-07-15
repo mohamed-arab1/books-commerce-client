@@ -7,12 +7,14 @@ import {
 import Home from "./pages/Home";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import BookDetails from "./pages/BookDetails";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<Home />} />
+        <Route path="/books/:id" element={<BookDetails />} />
       </Route>
     )
   );

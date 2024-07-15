@@ -1,12 +1,11 @@
 import { BooksState } from "../globalType/bookType";
 import { Book } from "../globalType/bookType";
 import axios from "axios";
-import { url } from "../Url";
+import { ServerBaseUrl } from "../Url";
 
-import { createSlice, createAsyncThunk, AsyncThunk  } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 
 import { RootState, AppDispatch } from "./store";
-
 
 const initialState: BooksState = {
   books: [],
@@ -21,16 +20,16 @@ interface AsyncThunkConfig {
   rejectValue: string;
 }
 
-export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig>= createAsyncThunk<Book[], void, AsyncThunkConfig>(
+export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig> =
+  createAsyncThunk<Book[], void, AsyncThunkConfig>(
+    "books/fetchBooks",
+    async () => {
+      const response = await axios.get<Book[]>(`${ServerBaseUrl}/books`);
+      return response.data;
+    }
+  );
 
-  "books/fetchBooks",
-  async () => {
-    const response = await axios.get<Book[]>(`${url}/api/books`);
-    return response.data;
-  }
-);
-
-const BoockSlice = createSlice({
+const BookSlice = createSlice({
   name: "books",
   initialState,
   reducers: {
@@ -53,5 +52,5 @@ const BoockSlice = createSlice({
       });
   },
 });
-export const { setGenres } = BoockSlice.actions;
-export default BoockSlice.reducer;
+export const { setGenres } = BookSlice.actions;
+export default BookSlice.reducer;
