@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       height: {
-        "CardHeight": "539px",
-        "imageCard": "300px",
+        "CardHeight": "390px",
+        "imageCard": "150px",
         "smallImageCard": "250px",
         "button": "53px"
 
@@ -27,7 +27,7 @@ export default {
         "16": "16px"
       },
       width: {
-        "CardWidth": "337px",
+        "CardWidth": "280px",
         "smallCardWidth": "260px",
         "button": "123px"
       },
@@ -40,6 +40,7 @@ export default {
       },
       boxShadow: {
         'cardshadow': '10px 2px 5px rgba(0, 0, 0, 0.1)',
+        'loginshadow': '0px 0px 20px 0px rgba(0, 0, 0, 0.25)'
       },
       colors: {
         "star": "#FFC444",
@@ -49,6 +50,7 @@ export default {
        "bgfooter": "#2F3367",
        "textFooter":"#FFFFFF",
        "search":"#444B8C",
+       "active":"#00C9EB",
        'custom-color': {
           DEFAULT:'#F8CC77',
           '16': 'rgba(248, 204, 119, 0.16)',
@@ -56,9 +58,16 @@ export default {
           '80': 'rgba(248, 204, 119, 0.8)',
           '100':'rgba(253, 209, 121)'
         },
+        "main":' rgba(38, 38, 79, 1)',
+        'logintext':'rgba(77, 77, 77, 1)',
+        'seccolor':'rgba(171, 171, 171, 1)',
+
+
         backgroundImage: {
           'custom-gradient': 'linear-gradient(to right, rgba(248, 204, 119, 0.8) 80%, rgba(248, 204, 119, 0.16) 20%)',
+          'loginbg':"url('./src/assets/login.png')"
         },
+
 
       }
     },
