@@ -38,7 +38,7 @@ export default function Cards() {
         {status === "succeeded" && (
           <div className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
             {filteredBooks.map((book: Book) => (
-              <Card book={book} />
+              <Card book={book} key={book._id} />
             ))}
           </div>
         )}
