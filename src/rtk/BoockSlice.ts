@@ -1,5 +1,3 @@
- 
-
 import { BooksState } from "../globalType/bookType";
 import { Book } from "../globalType/bookType";
 import axios from "axios";
@@ -27,7 +25,7 @@ export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig>= createAsync
 
   "books/fetchBooks",
   async () => {
-    const response = await axios.get<Book[]>(`${url}/books`);
+    const response = await axios.get<Book[]>(`${url}/api/books`);
     return response.data;
   }
 );
