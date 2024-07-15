@@ -2,19 +2,13 @@ import { Path, FieldValues, UseFormRegister} from 'react-hook-form'
 
 
 type TypeInput<TypeFieldValues extends FieldValues> = {
-<<<<<<< HEAD
+
     name: Path<TypeFieldValues>,
     label: string,
     type?: string,
     register: UseFormRegister<TypeFieldValues>,
     error?: string
-=======
-    name:Path<TypeFieldValues>,
-    label:string,
-    type?:string,
-    register:UseFormRegister<TypeFieldValues>,
-    error?:string,
->>>>>>> 38a0a5f6846cf052f98a97a51ad0e376e30ebba4
+
 }
 
 const Input = <TypeFieldValues extends FieldValues> ({
