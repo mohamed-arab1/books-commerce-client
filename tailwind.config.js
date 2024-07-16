@@ -55,6 +55,7 @@ export default {
        "textFooter":"#FFFFFF",
        "search":"#444B8C",
        "active":"#00C9EB",
+       "notFound":"#7fb300",
        'custom-color': {
           DEFAULT:'#F8CC77',
           '16': 'rgba(248, 204, 119, 0.16)',

@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Notfound from "./pages/Notfound";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
+        <Route path="*" element={<Notfound />} />
       </Route>
     )
   );
