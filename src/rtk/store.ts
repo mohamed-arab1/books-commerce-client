@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import booksReducer from './BoockSlice';
+import  cartSlice  from "./CartSlice";
+
 
 const store = configureStore({
   reducer: {
     books: booksReducer,
+    cart : cartSlice,
+
   },
 });
 
