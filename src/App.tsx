@@ -7,6 +7,7 @@ import {
 import Home from "./pages/Home";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import BookDetails from "./pages/BookDetails";
 import Cart from "./pages/Cart";
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<Home />} />
+        <Route path="/books/:id" element={<BookDetails />} />
         <Route path="/add-to-cart" element={<Cart />} />
-
       </Route>
     )
   );
