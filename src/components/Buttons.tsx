@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setGenres } from "../rtk/BoockSlice";
+import { setGenres } from "../rtk/BookSlice";
 import HeaderText from "./HeaderText";
 import { RootState } from "../rtk/store";
 import Button from "../elements/Button";

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Book } from "../globalType/bookType";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
-import { fetchBooks } from "../rtk/BoockSlice";
+import { fetchBooks } from "../rtk/BookSlice";
 import Card from "../elements/Card";
 import LoadingSpaneer from "../elements/LoadingSpaneer";
 export default function Cards() {
@@ -38,7 +38,11 @@ export default function Cards() {
         {status === "succeeded" && (
           <div className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
             {filteredBooks.map((book: Book) => (
-              <Card book={book} key={book._id} />
+
+            
+
+              <Card key={book._id} book={book} />
+
             ))}
           </div>
         )}

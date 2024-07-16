@@ -3,9 +3,16 @@ import { CardProps } from "../globalType/bookType";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
-import { useState } from "react";
+import {   useState } from "react";
+import { addToCart } from "../rtk/CartSlice";
+import { useDispatch } from "react-redux";
 
-export default function Card({ book }: CardProps) {
+
+export default function Card({ book }: CardProps ) {
+
+  const dispatch = useDispatch();
+
+
   const [favoret, setFavoret] = useState(false);
   const handilFavoret = () => {
     favoret === true ? setFavoret(false) : setFavoret(true);
@@ -13,6 +20,10 @@ export default function Card({ book }: CardProps) {
 
   return (
     <div
+
+
+      key={book._id}
+
       className="h-CardHeight m-auto my-5 lg:w-CardWidth w-smallCardWidth bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
     >
       <img
@@ -43,8 +54,11 @@ export default function Card({ book }: CardProps) {
           <h1 className="font-DMSerifDisplay text-18">{book.author.substring(0,15)}</h1>
         </div>
       </div>
-      <div className="flex justify-between my-4">
-        <button>
+
+      <div className="flex justify-between my-2">
+        <button onClick={() => dispatch(addToCart(book))}
+        >
+
           <BsCart3 className="text-[19px]  text-star" />
         </button>
         <button onClick={handilFavoret}>

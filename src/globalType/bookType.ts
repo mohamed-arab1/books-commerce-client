@@ -1,4 +1,5 @@
 export type Book = {
+
     genre: string;
     _id: string;
     cover_image: string;
@@ -19,3 +20,6 @@ export type Book = {
       error: string | null;
       selectedGenres: string[];
     }
+
+
+
