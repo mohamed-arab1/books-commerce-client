@@ -3,6 +3,10 @@ import Input from "../elements/Input"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { Link } from "react-router-dom"
+import axiosInstance from "../utlis/axios"
+// import { logInOut } from "../rtk/authSlice"
+
+
 
 ////yub validation
 const schema = yup.object({
@@ -22,6 +26,7 @@ type Typeform={
 }
 
 const Login = () => {
+
     const { 
         register,
         handleSubmit,
@@ -31,15 +36,19 @@ const Login = () => {
         resolver: yupResolver(schema), ///yub for validation
       }) 
 
+    const url="http://localhost:3030/auth/signin";
     const submitForm : SubmitHandler<Typeform> = () => {
-        // console.log(data)
+        axiosInstance.post(url,{
+           register
+          })
+          console.log(Response)
     }
   return (
-    <div className="bg-slate-600 h-[100vh] w-full md:py-[30px]">
-        <div className="bg-white mx-auto lg:w-1/3 md:w-1/2 sm:w-[100%] text-center pt-[40px] rounded-md shadow-loginshadow h-[100vh] md:h-auto">
+    <div className="bglogin relative h-[100vh] w-full md:py-[40px]">
+        <div className="bg-white mx-auto lg:w-1/3 md:w-1/2 sm:w-[100%] text-center pt-[40px] rounded-md shadow-loginshadow h-[100vh] md:h-[600px]">
             <h1 className="font-bold text-[30px] md:text-[30px]">My <span className="text-main">Book</span></h1>
             <p className="text-logintext text-[16px] md:text-[18px] pt-[18px]">Welcome Back!</p>
-            <p className="text-[14px] md:text-[16px] text-seccolor pt-2">Sign in to continue to yourDigital Library </p>
+            <p className="text-[14px] md:text-[16px] text-seccolor pt-2">Sign in to continue to your Digital Library </p>
             <div className="pt-[30px]">
                 <form onSubmit={handleSubmit(submitForm)}
                     className="box-border mx-[50px]"
@@ -59,12 +68,12 @@ const Login = () => {
                         />
                     <p  className="font-bold text-red-600 text-left mb-[14px]">{errors.password?.message}</p>
                     <div className="flex justify-between text-[13px] md:text-[16px] text-logintext my-[35px]">
-                        <p>Remember me</p>
-                        <Link className="underline">Forget Password?</Link>
+                        <label ><input type="checkbox"/>Remember me</label>
+                        <Link to="#" className="underline">Forget Password?</Link>
                     </div>
                     <button className="bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold">Login</button>
                     <div className="flex justify-between  text-[13px] md:text-[14px] py-[15px]">
-                        <p className="">New User?<Link to='/Register'  className="underline">Register Here</Link></p>
+                        <p className="">New User?<Link to='/register'  className="underline">Register Here</Link></p>
                         <p>Use as Guest</p>
                     </div>
                 </form>

@@ -65,7 +65,8 @@ export default {
 
         backgroundImage: {
           'custom-gradient': 'linear-gradient(to right, rgba(248, 204, 119, 0.8) 80%, rgba(248, 204, 119, 0.16) 20%)',
-          'loginbg':"url('./src/assets/login.png')"
+          'login':'linear-gradient(160.86deg, #A3D3FB -8.64%, #202D40 121.84%)'
+
         },
 
 

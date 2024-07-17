@@ -2,7 +2,11 @@ import { useForm , SubmitHandler } from "react-hook-form"
 import Input from "../elements/Input"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import axiosInstance from "../utlis/axios"
+import { useDispatch } from "react-redux"
+import { signUpUser } from "../rtk/authSlice"
+import { useState } from "react"
 
 ////yub validation
 const schema = yup.object({
@@ -31,6 +35,13 @@ type Typeform={
 }
 
 const  Register = () => {
+
+    // const [regNo,setregNo]=useState('')
+    // const [email,setEmail]=useState('')
+    // const [password,setregPassword]=useState('')
+    // const [confirmPassword,setregConfirmpassword]=useState('')
+
+
     const { 
         register,
         handleSubmit,
@@ -40,17 +51,26 @@ const  Register = () => {
         resolver: yupResolver(schema), ///yub for validation
       }) 
 
-    const submitForm : SubmitHandler<Typeform> = () => {
-        // console.log(data)
-    }
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
+
+      const onSubmit=(data:Typeform) => {
+        data.preventDefault();
+        dispatch(signUpUser({regNo, email, password, confirmPassword}))
+        .then(action=>{
+            localStorage.setItem("accessToken",action.payload.token)
+            navigate('login')
+        })
+      }
+
   return (
-    <div className="bg-slate-600 h-[100vh] w-full md:py-[30px]">
-        <div className="bg-white mx-auto lg:w-1/3 md:w-1/2 sm:w-[100%] text-center pt-[40px] rounded-md shadow-loginshadow h-[100vh] md:h-auto">
+    <div className="bglogin relative h-[100vh] w-full md:py-[30px]">
+        <div className="bg-white mx-auto lg:w-1/3 md:w-1/2 sm:w-[100%] text-center pt-[40px] rounded-md shadow-loginshadow h-[100vh] md:h-[600px]">
             <h1 className="font-bold text-[30px] md:text-[30px]">My <span className="text-main">Book</span></h1>
             <p className="text-logintext text-[16px] md:text-[18px] pt-[18px]">Registration</p>
             <p className="text-[14px] md:text-[16px] text-seccolor pt-2">For Both Staff & Students</p>
             <div className="pt-20px]">
-                <form onSubmit={handleSubmit(submitForm)}
+                <form onSubmit={handleSubmit(onSubmit)}
                     className="box-border mx-[50px]"
                 >
                     <Input
@@ -86,7 +106,7 @@ const  Register = () => {
                     
                     <button className="bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold">Register</button>
                     <div className="flex justify-between text-[13px] md:text-[14px] py-[10px]">
-                        <p className="">Already a User?<Link to='/Register' className="underline"> Login now</Link></p>
+                        <p className="">Already a User?<Link to='/login' className="underline"> Login now</Link></p>
                         <p>Use as Guest</p>
                     </div>
                 </form>

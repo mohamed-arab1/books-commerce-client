@@ -5,3 +5,9 @@
 .header{
     background:url("./assets/home.svg")
 }
+.bglogin{
+    background: url("./assets/login.png");
+    background-size: cover;
+    top: -10px;
+    width: 100%;
+}
