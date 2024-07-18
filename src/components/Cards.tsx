@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
 import { fetchBooks } from "../rtk/BookSlice";
 import Card from "../elements/Card";
-import LoadingSpanner from "../elements/LoadingSpanner";
+
+
+import LoadingSpaneer from "../elements/LoadingSpaneer";
+
+
 export default function Cards() {
   const dispatch: AppDispatch = useDispatch();
   const books = useSelector((state: RootState) => state.books.books);

@@ -2,12 +2,18 @@ import { configureStore } from "@reduxjs/toolkit";
 import booksReducer from "./BookSlice";
 import BookDetails from "./BookDetailsSlice";
 import  cartSlice  from "./CartSlice";
+import loginReducer from "./loginSlice";
+import registerReducer from "./registerSlice";
+
+
 
 const store = configureStore({
   reducer: {
     books: booksReducer,
     BookDetails: BookDetails,
-    cart : cartSlice,
+    cart: cartSlice,
+    login: loginReducer,
+    register: registerReducer,
   },
 });
 

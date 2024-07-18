@@ -10,9 +10,12 @@ export type Book = {
   publication_year: string;
 };
 
+
 export interface CardProps {
   book: Book;
 }
+
+ 
 
 export interface BooksState {
   books: Book[];
