@@ -19,10 +19,12 @@ export default function Card({ book }: CardProps ) {
   };
 
   return (
+    <div>{book.most_popular}
     <div
 
 
       key={book._id}
+      
 
       className="h-CardHeight m-auto my-5 lg:w-CardWidth w-smallCardWidth bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
     >
@@ -65,6 +67,7 @@ export default function Card({ book }: CardProps ) {
           {favoret ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
         </button>
       </div>
+    </div>
     </div>
   );
 }
