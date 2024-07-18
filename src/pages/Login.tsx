@@ -2,11 +2,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "../elements/Input";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
 import { loginUser } from "../rtk/loginSlice";
+import { useEffect } from "react";
 
 // yup validation
 const schema = yup.object({
@@ -34,13 +35,20 @@ const Login = () => {
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const { loading, error } = useSelector((state: RootState) => state.login);
+  const { loading, error, user } = useSelector(
+    (state: RootState) => state.login
+  );
 
   const submitForm: SubmitHandler<Typeform> = (data) => {
     dispatch(loginUser(data));
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <>
@@ -84,7 +92,9 @@ const Login = () => {
               </div>
               <button
                 type="submit"
-                className="bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold"
+                className={` ${
+                  loading ? "opacity-50" : "opacity-100"
+                } bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold`}
                 disabled={loading}
               >
                 {loading ? "Loading..." : "Login"}

@@ -2,11 +2,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "../elements/Input";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../rtk/registerSlice";
-
+import { RootState, AppDispatch } from "../rtk/store";
+import { useEffect } from "react";
 ////yub validation
 const schema = yup.object({
   email: yup
@@ -28,7 +29,9 @@ type Typeform = {
 };
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { loading, user } = useSelector((state: RootState) => state.register);
   const {
     register,
     handleSubmit,
@@ -41,6 +44,13 @@ const Register = () => {
   const submitForm: SubmitHandler<Typeform> = (data) => {
     dispatch(registerUser(data));
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
   return (
     <>
       <Helmet>
@@ -63,15 +73,6 @@ const Register = () => {
               onSubmit={handleSubmit(submitForm)}
               className="box-border mx-[50px]"
             >
-              {/* <Input
-                name="regNo"
-                label="Reg No."
-                register={register}
-                error={errors.regNo?.message}
-              />
-              <p className="font-bold text-red-600 text-left mb-[14px]">
-                {errors.regNo?.message}
-              </p> */}
               <Input
                 name="email"
                 label="College Email ID"
@@ -93,7 +94,13 @@ const Register = () => {
                 error={errors.passwordConfirm?.message}
               />
 
-              <button className="bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold">
+              <button
+                type="submit"
+                disabled={loading}
+                className={` ${
+                  loading ? "opacity-50" : "opacity-100"
+                } bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold`}
+              >
                 Register
               </button>
               <div className="flex justify-between text-[13px] md:text-[14px] py-[10px]">
