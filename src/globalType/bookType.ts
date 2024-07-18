@@ -1,25 +1,23 @@
 export type Book = {
+  genre: string;
+  _id: string;
+  cover_image: string;
+  description: string;
+  title: string;
+  author: string;
+  price: string;
+  rate: number;
+  publication_year: number;
+  most_popular: boolean;
+};
 
-    genre: string;
-    _id: string;
-    cover_image: string;
-    description: string;
-    title: string;
-    author: string;
-    price:string;
-    rate:number
-  };
-  
-   export interface CardProps {
-    book: Book;
-  }
-  
-  export interface BooksState {
-      books:Book[];
-      status: 'idle' | 'loading' | 'succeeded' | 'failed';
-      error: string | null;
-      selectedGenres: string[];
-    }
+export interface CardProps {
+  book: Book;
+}
 
-
-
+export interface BooksState {
+  books: Book[];
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
+  selectedGenres: string[];
+}
