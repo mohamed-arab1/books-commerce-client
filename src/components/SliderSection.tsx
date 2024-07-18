@@ -97,7 +97,7 @@ const SliderSection = () => {
           ]
       };
   return (
-    <section className='w-full md:h-[600px]'>
+    <section className='w-full mt-[-20px] md:h-[600px]'>
         <article className='w-full'>
             <Slider {...settings}>
                 <div className='w-full md:h-[600px] relative'>
