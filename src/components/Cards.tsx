@@ -7,7 +7,7 @@ import Card from "../elements/Card";
 import LoadingSpaneer from "../elements/LoadingSpaneer";
 export default function Cards() {
   const dispatch: AppDispatch = useDispatch();
-  const books = useSelector((state: RootState) => state.books.books);
+  const books = useSelector((state: RootState) => state.books.bookDetails);
   const status = useSelector((state: RootState) => state.books.status);
   const error = useSelector((state: RootState) => state.books.error);
   const selectedGenres = useSelector(

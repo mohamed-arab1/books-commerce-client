@@ -7,6 +7,7 @@ export type Book = {
   author: string;
   price: string;
   rate: number;
+  publication_year: string;
 };
 
 export interface CardProps {
@@ -18,4 +19,10 @@ export interface BooksState {
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
   selectedGenres: string[];
+}
+
+export interface BookDetailsState {
+  bookDetails: Book;
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
 }
