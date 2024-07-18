@@ -1,27 +1,26 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router";
-import { ServerBaseUrl } from "../Url";
 import { Book } from "../globalType/bookType";
 import { StarRating } from "../elements/StarRating";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../rtk/store";
+import { fetchBookDetails } from "../rtk/BookDetailsSlice";
 
 export default function BookDetailsSection() {
   const { id } = useParams<{ id: string }>();
-  const [bookDetails, setBookDetails] = useState<Book>();
+  const dispatch = useDispatch() as AppDispatch;
+  const { status, bookDetails } = useSelector(
+    (state: RootState) => state.BookDetails
+  );
 
   useEffect(() => {
-    async function fetchBookById(id: string) {
-      const { data } = await axios.get(`${ServerBaseUrl}/books/${id}`);
-      console.log("data: ", data);
-      setBookDetails(data);
+    if (status === "idle" && id) {
+      dispatch(fetchBookDetails(id));
     }
-    if (id) fetchBookById(id);
-  }, [id]);
+  }, [dispatch, status, id]);
 
-  if (!bookDetails) return <div>Loading...</div>;
+  if (!bookDetails._id) return <div>Loading...</div>;
 
-  // not there yet
-  // publishedIn, price, author-img
   const {
     cover_image,
     title,
@@ -30,7 +29,7 @@ export default function BookDetailsSection() {
     rate,
     description,
     genre,
-    publishedIn,
+    publication_year,
   } = bookDetails as Book;
 
   return (
@@ -42,26 +41,22 @@ export default function BookDetailsSection() {
           alt={title}
         />
         <div className="space-y-4 min-mx-8 sm:w-[40%]">
-          
           <div className="space-y-1">
             <h2 className="text-2xl font-bold">{title}</h2>
-            <h3 className="font-light text-gray-600">{author.toUpperCase()}</h3>
+            <h3 className="font-light text-gray-600">
+              {author?.toUpperCase()}
+            </h3>
             <p className="py-2 ml-3 font-bold text-red-600 text-2xl">
-              {price || "$9.99"}
+              ${price || "9.99"}
             </p>
-            <StarRating
-              size={30}
-              defaultRating={rate}
-              viewOnly={true}
-              starsOnly={true}
-            />
+            <StarRating size={30} rating={rate} starsOnly={true} />
             <p className="pt-4 text-lg font-bold"> Published in </p>
-            <p>{publishedIn || "United States"}</p>
+            <p>{publication_year}</p>
           </div>
           <div>
             <h4 className="font-bold text-lg">Classifications</h4>
             <ul className="flex gap-4  flex-wrap">
-              {genre.map((g) => (
+              {genre?.map((g) => (
                 <li key={g}>{g}</li>
               ))}
             </ul>

@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
 import { fetchBooks } from "../rtk/BookSlice";
 import Card from "../elements/Card";
-import LoadingSpaneer from "../elements/LoadingSpaneer";
 
+
+
+
+import LoadingSpanner from "../elements/LoadingSpanner"
 export default function Cards() {
   const dispatch: AppDispatch = useDispatch();
   const books = useSelector((state: RootState) => state.books.books);
@@ -32,18 +35,14 @@ export default function Cards() {
       <section className="w-full h-full">
         {status === "loading" && (
           <div className=" w-full h-[400px] flex items-center justify-center">
-            <LoadingSpaneer />
+            <LoadingSpanner />
           </div>
         )}
         {status === "failed" && <p>Error: {error}</p>}
         {status === "succeeded" && (
           <div className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
             {filteredBooks.map((book: Book) => (
-
-            
-
               <Card key={book._id} book={book} />
-
             ))}
           </div>
         )}
