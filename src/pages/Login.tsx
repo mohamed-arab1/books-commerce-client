@@ -77,7 +77,7 @@ const Login = () => {
                 error={errors.password?.message}
               />
               <div className="flex justify-between text-[13px] md:text-[16px] text-logintext my-[35px]">
-                <p>Remember me</p>
+              <label ><input type="checkbox"/>Remember me</label>
                 <Link to={""} className="underline">
                   Forgot Password?
                 </Link>

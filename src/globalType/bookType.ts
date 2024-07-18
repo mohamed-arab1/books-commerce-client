@@ -8,6 +8,7 @@ export type Book = {
     author: string;
     price:string;
     rate:number
+    most_popular:boolean
   };
   
    export interface CardProps {
