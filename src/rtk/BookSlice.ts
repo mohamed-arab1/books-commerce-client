@@ -24,7 +24,7 @@ export const fetchBooks: AsyncThunk<Book[], void, AsyncThunkConfig> =
   createAsyncThunk<Book[], void, AsyncThunkConfig>(
     "books/fetchBooks",
     async () => {
-      const response = await axios.get<Book[]>(`${ServerBaseUrl}/books`);
+      const response = await axios.get<Book[]>(`${ServerBaseUrl}/api/books`);
       return response.data;
     }
   );
