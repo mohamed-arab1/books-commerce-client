@@ -11,7 +11,7 @@ export const registerUser = createAsyncThunk<
   UserType,
   Credentials,
   { rejectValue: string }
->("auth/loginUser", async (credentials, { rejectWithValue }) => {
+>("auth/registerUser", async (credentials, { rejectWithValue }) => {
   try {
     const response = await axios.post(
       `${ServerBaseUrl}/auth/signup`,
