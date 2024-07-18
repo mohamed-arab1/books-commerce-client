@@ -107,7 +107,7 @@ const Register = () => {
               </button>
               <div className="flex justify-between text-[13px] md:text-[14px] py-[10px]">
                 <p className="">
-                  Already a User?
+                  Already a User
                   <Link to="/Register" className="underline">
                     {" "}
                     Login now
