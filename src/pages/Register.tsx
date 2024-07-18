@@ -78,9 +78,6 @@ const Register = () => {
                 register={register}
                 error={errors.email?.message}
               />
-              <p className="font-bold text-red-600 text-left mb-[14px]">
-                {errors.email?.message}
-              </p>
 
               <Input
                 name="password"
@@ -88,9 +85,6 @@ const Register = () => {
                 register={register}
                 error={errors.password?.message}
               />
-              <p className="font-bold text-red-600 text-left mb-[14px]">
-                {errors.password?.message}
-              </p>
 
               <Input
                 name="passwordConfirm"
@@ -98,9 +92,6 @@ const Register = () => {
                 register={register}
                 error={errors.passwordConfirm?.message}
               />
-              <p className="font-bold text-red-600 text-left mt-0 pt-0">
-                {errors.passwordConfirm?.message}
-              </p>
 
               <button className="bg-main text-white w-full rounded-md p-[8px] text-[14px] md:text-[16px] font-bold">
                 Register
