@@ -1,13 +1,14 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ServerBaseUrl } from "../Url";
-import axiosInstance from "../utlis/axios";
+
 
 // Define types
 import { User, Credentials, AuthState } from "../globalType/AuthType";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ServerBaseUrl } from "../Url";
+import axiosInstance from "../utlis/axios";
 
-// Async thunk for login
+
 export const loginUser = createAsyncThunk<
-  User,
+  { user: User; tokens: { accessToken: string; refreshToken: string } },
   Credentials,
   { rejectValue: string }
 >("auth/loginUser", async (credentials, { rejectWithValue }) => {
@@ -26,6 +27,8 @@ const initialState: AuthState = {
   user: null,
   loading: false,
   error: null,
+  accessToken: null,
+  refreshToken: null,
 };
 
 const loginSlice = createSlice({
@@ -34,6 +37,10 @@ const loginSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.user = null;
+      state.accessToken = null;
+      state.refreshToken = null;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
     },
   },
   extraReducers: (builder) => {
@@ -42,9 +49,13 @@ const loginSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<User>) => {
+      .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload;
+        state.user = action.payload.user;
+        state.accessToken = action.payload.tokens.accessToken;
+        state.refreshToken = action.payload.tokens.refreshToken;
+        localStorage.setItem("accessToken", action.payload.tokens.accessToken);
+        localStorage.setItem("refreshToken", action.payload.tokens.refreshToken);
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

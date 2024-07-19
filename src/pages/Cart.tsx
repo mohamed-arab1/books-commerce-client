@@ -20,7 +20,7 @@ export default function Cart() {
               
       <section className="container mx-auto">
      
-        <div className="overflow-x-auto shadow-md shadow-md sm:rounded-lg mt-[40px] w-[1300px] ">
+        <div className="overflow-x-auto shadow-md  sm:rounded-lg mt-[40px] w-[1300px] ">
         <h5 style={{fontWeight:"bold"}}>Total: {totalPrice.toFixed(2)}$</h5>
 
         <div  className="flex justify-end">
