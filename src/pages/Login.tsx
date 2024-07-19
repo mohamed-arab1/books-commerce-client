@@ -44,12 +44,14 @@ const Login = () => {
   const submitForm: SubmitHandler<Typeform> = (data) => {
     dispatch(loginUser(data));
   };
+  
+
   useEffect(() => {
     if (user) {
+     
       navigate("/");
     }
   }, [user, navigate]);
-
   return (
     <>
       <Helmet>
