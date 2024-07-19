@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
 import { ServerBaseUrl } from "../Url";
+import axiosInstance from "../utlis/axios";
 
 // Define types
 import { User, Credentials, AuthState } from "../globalType/AuthType";
@@ -12,7 +12,7 @@ export const loginUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/loginUser", async (credentials, { rejectWithValue }) => {
   try {
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       `${ServerBaseUrl}/auth/signin`,
       credentials
     );

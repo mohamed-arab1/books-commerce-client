@@ -1,13 +1,10 @@
-
-
-
 import { useEffect } from "react";
 import { Book } from "../globalType/bookType";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../rtk/store";
 import { fetchBooks } from "../rtk/BookSlice";
 import Card from "../elements/Card";
-import LoadingSpaneer from "../elements/LoadingSpaneer";
+import LoadingSpanner from "../elements/LoadingSpanner";
 
 export default function MostPuppularCard() {
   const dispatch: AppDispatch = useDispatch();
@@ -31,7 +28,7 @@ export default function MostPuppularCard() {
       <section className="w-full h-full">
         {status === "loading" && (
           <div className=" w-full h-[400px] flex items-center justify-center">
-            <LoadingSpaneer />
+            <LoadingSpanner />
           </div>
         )}
         {status === "failed" && <p>Error: {error}</p>}

@@ -56,18 +56,12 @@ const Login = () => {
         <title>Login</title>
         <meta name="description" content="Login to book store" />
       </Helmet>
-      <div className="bg-slate-600 h-screen w-full md:py-[30px]">
-        <div className="bg-white mx-auto lg:w-1/3 md:w-1/2 sm:w-full text-center pt-[40px] rounded-md shadow-loginshadow h-[100vh] md:h-auto">
-          <h1 className="font-bold text-[30px] md:text-[30px]">
-            My <span className="text-main">Book</span>
-          </h1>
-          <p className="text-logintext text-[16px] md:text-[18px] pt-[18px]">
-            Welcome Back!
-          </p>
-          <p className="text-[14px] md:text-[16px] text-seccolor pt-2">
-            Sign in to continue to your Digital Library
-          </p>
-          <div className="pt-[30px]">
+    <div className="bglogin relative h-[100vh] w-full md:py-[40px]">
+        <div className="bg-white mx-auto lg:w-1/3 md:w-1/2 sm:w-[100%] text-center pt-[40px] rounded-md shadow-loginshadow h-[100vh] md:h-[600px]">
+            <h1 className="font-bold text-[30px] md:text-[30px]">My <span className="text-main">Book</span></h1>
+            <p className="text-logintext text-[16px] md:text-[18px] pt-[18px]">Welcome Back!</p>
+            <p className="text-[14px] md:text-[16px] text-seccolor pt-2">Sign in to continue to your Digital Library </p>
+            <div className="pt-[30px]">
             <form
               onSubmit={handleSubmit(submitForm)}
               className="box-border mx-[50px]"
@@ -85,7 +79,7 @@ const Login = () => {
                 error={errors.password?.message}
               />
               <div className="flex justify-between text-[13px] md:text-[16px] text-logintext my-[35px]">
-                <p>Remember me</p>
+              <label ><input type="checkbox"/>Remember me</label>
                 <Link to={""} className="underline">
                   Forgot Password?
                 </Link>
@@ -103,7 +97,7 @@ const Login = () => {
               <div className="flex justify-between text-[13px] md:text-[14px] py-[15px]">
                 <p className="">
                   New User?{" "}
-                  <Link to="/Register" className="underline">
+                  <Link to="/register" className="underline">
                     Register Here
                   </Link>
                 </p>
