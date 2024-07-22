@@ -1,0 +1,39 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 8rem;
+}
+
+.container ul {
+  bottom: 10%;
+  row-gap: 1rem;
+}
+
+.container ul li {
+  width: fit-content;
+  height: fit-content;
+  margin-right: 1rem;
+}
+
+.container ul li:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .container ul li {
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container ul li {
+    margin-right: 0.1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container ul {
+    bottom: 0rem;
+  }
+}
