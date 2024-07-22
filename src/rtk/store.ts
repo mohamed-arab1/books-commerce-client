@@ -18,8 +18,6 @@ const store = configureStore({
     register: registerReducer,
 
     BookDetails: BookDetails,
-   
-
   },
 });
 

@@ -5,6 +5,7 @@ import { StarRating } from "../elements/StarRating";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../rtk/store";
 import { fetchBookDetails } from "../rtk/BookDetailsSlice";
+import LoadingSpanner from "../elements/LoadingSpanner";
 
 export default function BookDetailsSection() {
   const { id } = useParams<{ id: string }>();
@@ -19,7 +20,7 @@ export default function BookDetailsSection() {
     }
   }, [dispatch, status, id]);
 
-  if (!bookDetails._id) return <div>Loading...</div>;
+  if (!bookDetails._id) return <LoadingSpanner  />;
 
   const {
     cover_image,
