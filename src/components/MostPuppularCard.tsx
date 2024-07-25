@@ -21,7 +21,7 @@ export default function MostPuppularCard() {
 
 
   const popularBooks = books.filter((book) => book.most_popular);
-  console.log(popularBooks);
+ 
   
   return (
     <>

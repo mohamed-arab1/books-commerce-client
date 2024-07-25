@@ -33,6 +33,7 @@ export default {
       width: {
         "CardWidth": "280px",
         "smallCardWidth": "260px",
+        "phoneCardWidth":"230px",
         "button": "95px"
       },
       borderRadius: {

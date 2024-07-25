@@ -4,10 +4,8 @@ import booksReducer from "./BookSlice";
 import loginReducer from "./loginSlice";
 import registerReducer from "./registerSlice";
 import cartSlice from "./CartSlice";
-
+// import authReducer from "./RefreshTokenSlice";
 import BookDetails from "./BookDetailsSlice";
-
-
 
 const store = configureStore({
   reducer: {
@@ -18,8 +16,7 @@ const store = configureStore({
     register: registerReducer,
 
     BookDetails: BookDetails,
-   
-
+    // auth: authReducer,
   },
 });
 

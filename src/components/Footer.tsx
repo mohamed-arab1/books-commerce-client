@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className=" font-gothic min-h-[511px] grid  lg-grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:flex text-textFooter py-20 bg-bgfooter w-full px-20">
+    <div className=" font-gothic min-h-[511px] grid  lg-grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:flex text-textFooter py-20 bg-bgfooter w-full phon:px-20 px-5">
       <div className=" xl:w-[40%] gap-y-8 flex flex-col mt-10">
         <h1 className="font-bold text-[32px]">Book Store </h1>
         <p className="text-[16px] font-light">
@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-[60px] mt-10 xl:w-[20%] ">
+      <div className="md:mx-[60px] mt-10 xl:w-[20%] md:me-auto sm:ms-auto ">
         <h1 className="font-bold text-[25px] ">Useful Links</h1>
         <ul className="gap-y-5 flex flex-col font-light mt-10">
           <li>
@@ -50,7 +50,7 @@ export default function Footer() {
         </p>
         {`receive updates via email.`}
 
-        <div className=" my-7 bg-search items-center flex h-[55px] pr-1 w-[315px] pl-5 rounded-[50px]">
+        <div className=" my-7 bg-search items-center flex h-[55px] pr-1  phon:w-[315px] pl-5 rounded-[50px]">
           <input
             type="search"
             placeholder="Enter yor mail here."
