@@ -16,6 +16,7 @@ import Notfound from "./pages/Notfound";
 
 import BookDetails from "./pages/BookDetails";
 import Cart from "./pages/Cart";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   const router = createBrowserRouter(
@@ -27,6 +28,7 @@ function App() {
         <Route path="*" element={<Notfound />} />
         <Route path="/books/:id" element={<BookDetails />} />
         <Route path="/add-to-cart" element={<Cart />} />
+        <Route path="wishlist" element={<Wishlist/>}/>
       </Route>
     )
   );

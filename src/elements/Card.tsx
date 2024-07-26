@@ -6,15 +6,26 @@ import { BsCart3 } from "react-icons/bs";
 import { useState } from "react";
 import { addToCart } from "../rtk/CartSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { addToWishList } from "../rtk/wishSlice";
+
 
 export default function Card({ book }: CardProps) {
   const dispatch = useDispatch();
+  const navigate =useNavigate();
 
   const [favorite, setFavorite] = useState(false);
   const handelFavorite = () => {
     favorite === true ? setFavorite(false) : setFavorite(true);
   };
+
+  //add to wish list
+
+  const addToWishListHandler = ({book}:CardProps) => {
+    dispatch(addToWishList(book))
+    navigate('/wishlists')
+  }
+
 
   return (
     <div
@@ -60,7 +71,7 @@ export default function Card({ book }: CardProps) {
         <button onClick={() => dispatch(addToCart(book))}>
           <BsCart3 className="text-[19px]  text-star" />
         </button>
-        <button onClick={handelFavorite}>
+        <button onClick={() => addToWishListHandler(book)}>
           {favorite ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
         </button>
       </div>

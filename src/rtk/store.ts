@@ -8,16 +8,17 @@ import cartSlice from "./CartSlice";
 import BookDetails from "./BookDetailsSlice";
 
 
+import wishSlice from "./wishSlice";
 
 const store = configureStore({
   reducer: {
     books: booksReducer,
-
     cart: cartSlice,
     login: loginReducer,
     register: registerReducer,
-
     BookDetails: BookDetails,
+    wishlists:wishSlice,
+
   },
 });
 

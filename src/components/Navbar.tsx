@@ -4,7 +4,11 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { RootState } from "../rtk/store";
+
 export default function Navbar() {
+
+  const { wishlistitems } = useSelector((state)=>state?.wishlists)
+
   const Links = [
     { id: 1, link: "Home", href: "/#home" },
     { id: 2, link: "Contact", href: "/#contact" },
@@ -55,9 +59,15 @@ export default function Navbar() {
         <div className="flex items-center ">
           <Link
             to="/add-to-cart"
-            className="hover:text-white hover:bg-[#A3D3FB] bg-white p-[10px] rounded text-[#202D40]"
+            className="hover:text-white hover:bg-[#A3D3FB] bg-white p-[10px] rounded text-[#202D40] mx-[20px]"
           >
             <button>Go To Cart</button>
+          </Link>
+          <Link
+            to="/wishlist"
+            className="hover:text-white hover:bg-[#A3D3FB] bg-white p-[10px] rounded text-[#202D40]"
+          >
+            <button>Wishlist</button>
           </Link>
 
           <div className="ml-[20px] mr-[20px]">
