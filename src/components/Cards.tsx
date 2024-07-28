@@ -5,10 +5,8 @@ import { RootState, AppDispatch } from "../rtk/store";
 import { fetchBooks } from "../rtk/BookSlice";
 import Card from "../elements/Card";
 
-
-
-
-import LoadingSpanner from "../elements/LoadingSpanner"
+import LoadingSpanner from "../elements/LoadingSpanner";
+import { Slider } from "./Slider";
 export default function Cards() {
   const dispatch: AppDispatch = useDispatch();
   const books = useSelector((state: RootState) => state.books.books);
@@ -33,18 +31,14 @@ export default function Cards() {
   return (
     <>
       <section className="w-full h-full">
-        {status === "loading" && (
-          <div className=" w-full h-[400px] flex items-center justify-center">
-            <LoadingSpanner />
-          </div>
-        )}
+        {status === "loading" && <LoadingSpanner />}
         {status === "failed" && <p>Error: {error}</p>}
         {status === "succeeded" && (
-          <div className="w-[90%] justify-center h-full m-auto grid xl:grid-cols-3 sm:grid-cols-2 pr-5 grid-cols-1">
-            {filteredBooks.map((book: Book) => (
-              <Card key={book._id} book={book} />
-            ))}
-          </div>
+            <Slider dots={true} slidesToShow={3} slidesToScroll={3} arrows={true}>
+              {filteredBooks.map((book: Book) => (
+                <Card key={book._id} book={book} />
+              ))}
+            </Slider>
         )}
       </section>
     </>

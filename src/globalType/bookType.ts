@@ -1,6 +1,4 @@
 export type Book = {
-
-  
   _id: string;
   genre: string[];
   cover_image: string;
@@ -8,14 +6,11 @@ export type Book = {
   title: string;
   author: string;
   price: string;
-  rate: number;
-
+  rate?: number;
   publication_year: number;
-  most_popular: boolean;
-
-  publication_year: string;
-
+  most_popular?: boolean;
 };
+
 
 export interface CardProps {
   book: Book;

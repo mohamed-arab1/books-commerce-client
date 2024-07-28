@@ -6,28 +6,40 @@ import { BsCart3 } from "react-icons/bs";
 import { useState } from "react";
 import { addToCart } from "../rtk/CartSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Card({ book }: CardProps) {
   const dispatch = useDispatch();
 
-  const [favoret, setFavoret] = useState(false);
-  const handilFavoret = () => {
-    favoret === true ? setFavoret(false) : setFavoret(true);
+
+
+  const [favorite, setFavorite] = useState(false);
+  const handelFavorite = () => {
+    favorite === true ? setFavorite(false) : setFavorite(true);
+
   };
 
   return (
     <div
       key={book._id}
+
       className="h-CardHeight m-auto my-5 lg:w-CardWidth phone:w-smallCardWidth w-phoneCardWidth  bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
+
+     
+
     >
-      <img
-        src={book.cover_image}
-        className=" hover:scale-[1.1] w-full lg:h-imageCard h-smallImageCard rounded-card"
-      />
+      <Link to={`/books/${book._id}`}>
+        <img
+          src={book.cover_image}
+          className=" hover:scale-[1.1] w-full lg:h-imageCard h-smallImageCard rounded-card"
+        />
+      </Link>
       <div className="flex flex-col gap-y-2">
-        <h4 className="font-DMSerifDisplay mt-5 text-18 tracking-wide">
-          {book.title.substring(0, 15)}
-        </h4>
+        <Link to={`/books/${book._id}`}>
+          <h4 className="font-DMSerifDisplay mt-5 text-18 tracking-wide">
+            {book.title.substring(0, 15)}
+          </h4>
+        </Link>
         <article className="font-raleway font-medium text-[15px]  leading-6">
           {book.description.substring(0, 40)}
         </article>
@@ -55,8 +67,8 @@ export default function Card({ book }: CardProps) {
         <button onClick={() => dispatch(addToCart(book))}>
           <BsCart3 className="text-[19px]  text-star" />
         </button>
-        <button onClick={handilFavoret}>
-          {favoret ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
+        <button onClick={handelFavorite}>
+          {favorite ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
         </button>
       </div>
     </div>
