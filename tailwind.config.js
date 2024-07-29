@@ -33,6 +33,7 @@ export default {
       width: {
         "CardWidth": "280px",
         "smallCardWidth": "260px",
+        "phoneCardWidth":"230px",
         "button": "95px"
       },
       borderRadius: {
@@ -50,10 +51,13 @@ export default {
         "star": "#FFC444",
         "bgCard": "#F8F8F8",
         "buttons": '#D9D9D9',
+        "dash":"#fcfcfc",
         "title": "#26264F",
        "bgfooter": "#2F3367",
        "textFooter":"#FFFFFF",
        "search":"#444B8C",
+       "hr":"#ddd9d9",
+       "hover":"#104e6a",
        "active":"#00C9EB",
        "notFound":"#7fb300",
        'custom-color': {

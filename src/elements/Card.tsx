@@ -11,15 +11,22 @@ import { Link } from "react-router-dom";
 export default function Card({ book }: CardProps) {
   const dispatch = useDispatch();
 
+
+
   const [favorite, setFavorite] = useState(false);
   const handelFavorite = () => {
     favorite === true ? setFavorite(false) : setFavorite(true);
+
   };
 
   return (
     <div
       key={book._id}
-      className="h-CardHeight m-auto my-5 lg:w-CardWidth w-smallCardWidth bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
+
+      className="h-CardHeight m-auto my-5 lg:w-CardWidth phone:w-smallCardWidth w-phoneCardWidth  bg-bgCard py-5 shadow-cardshadow rounded-card px-33px"
+
+     
+
     >
       <Link to={`/books/${book._id}`}>
         <img

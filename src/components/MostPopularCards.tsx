@@ -21,6 +21,9 @@ export default function MostPopularCards() {
   }, [status, dispatch]);
 
   const popularBooks = books.filter((book) => book.most_popular);
+ 
+
+
 
   return (
     <>

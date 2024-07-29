@@ -7,8 +7,6 @@ import cartSlice from "./CartSlice";
 
 import BookDetails from "./BookDetailsSlice";
 
-
-
 const store = configureStore({
   reducer: {
     books: booksReducer,
