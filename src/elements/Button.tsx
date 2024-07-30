@@ -9,7 +9,7 @@ export default function Button({
       {buttons.map((button) => (
         <button
           key={button.id}
-          className={` w-button m-auto h-button flex justify-center items-center ${
+          className={` w-button text-[15px] m-auto h-button flex justify-center items-center rounded-lg ${
             selectedGenres.includes(button.name) ||
             (button.name === "All" && selectedGenres.length === 0)
               ? "bg-blue-400 text-white"

@@ -5,7 +5,7 @@ import { addToCart , deleteFromCart , clear , decreaseQuantity} from "../rtk/Car
 export default function Cart() {
 
     const cart = useSelector(state => state.cart);
-     console.log(cart)
+    //  console.log(cart)
 
     const dispatch = useDispatch();
     const totalPrice = cart.reduce((acc, product) => {
@@ -20,7 +20,7 @@ export default function Cart() {
               
       <section className="container mx-auto">
      
-        <div className="overflow-x-auto shadow-md shadow-md sm:rounded-lg mt-[40px] w-[1300px] ">
+        <div className="overflow-x-auto shadow-md  sm:rounded-lg mt-[40px] w-[1300px] ">
         <h5 style={{fontWeight:"bold"}}>Total: {totalPrice.toFixed(2)}$</h5>
 
         <div  className="flex justify-end">
