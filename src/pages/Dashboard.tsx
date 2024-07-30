@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <div className="w-full min-h-screen flex bg-gray-100">
       <Saidbar />
-      <div className="w-[82%]">
+      <div className="xl:w-[82%] md:w-[80%] w-full">
       <Navbar/>
       <Home/>
       <Statics/>

@@ -37,9 +37,9 @@ export default function Home() {
     <div className="w-full  p-3 font-kantumruy">
       <h1 className="font-bold text-[18px]">Dashboard</h1>
       <h6 className="capitalize text-[13px] font-semibold">{`Home > dashboard`}</h6>
-      <div className="grid grid-cols-4 gap-x-4 full py-10 ">
+      <div className="grid xl:grid-cols-4 md:grid-cols-3 phon:grid-cols-2 grid-cols-1 gap-x-4 full py-10 ">
         {items.map((item) => (
-          <div key={item.id} className="bg-dash rounded-[10px] p-3 mt-[-19px]">
+          <div key={item.id} className="bg-dash rounded-[10px]  p-3 mt-5 xl:mt-[-19px]">
             <div className="flex justify-between items-center">
               <h1 className="font-semibold capitalize">{item.name}</h1>
               <SlOptionsVertical />

@@ -68,7 +68,7 @@ export default function Products() {
           <button
             key={index + 1}
             onClick={() => handlePageChange(index + 1)}
-            className={`mx-1 px-3 py-1 rounded phon:blook hidden ${
+            className={`mx-1 px-3 py-1 rounded phon:block hidden ${
               currentPage === index + 1 ? "bg-hover text-white" : "bg-gray-300"
             }`}
           >
