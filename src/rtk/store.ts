@@ -1,14 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit';
-import booksReducer from './BoockSlice';
-import  cartSlice  from "./CartSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import booksReducer from "./BoockSlice";
+import cartReducer from "./CartSlice";
+import { saveStateToLocalStorage, loadStateFromLocalStorage } from "./localstorage";
 
+const preloadedState = loadStateFromLocalStorage();
 
 const store = configureStore({
   reducer: {
     books: booksReducer,
-    cart : cartSlice,
-
+    cart: cartReducer,
   },
+  preloadedState: {
+    cart: preloadedState,
+  },
+});
+
+store.subscribe(() => {
+  saveStateToLocalStorage(store.getState().cart);
 });
 
 export type RootState = ReturnType<typeof store.getState>;
