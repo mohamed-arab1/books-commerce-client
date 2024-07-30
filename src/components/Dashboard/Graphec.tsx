@@ -46,12 +46,12 @@ export default function Graphec() {
   };
 
   return (
-    <div className=" px-2 w-[70%] bg-dash mt-[-35px] mx-3 rounded-[10px]">
+    <div className=" px-2 lg:w-[70%] w-[95%]  bg-dash mt-[-35px] mx-3 rounded-[10px]">
       <div className="flex justify-between  items-center">
         <h1 className="font-bold font-kantumruy">Sale Graph</h1>
-        <div className="flex items-center py-2">
+        <div className=" phon:flex-row gap-y-2 flex-col flex items-center py-2">
           <button
-            className={`px-4 py-1 mx-2 border-[1px] border-black text-[14px] font-semibold capitalize rounded-[5px] ${
+            className={` py-1 w-[70px] mx-2 border-[1px] border-black text-[14px] font-semibold capitalize rounded-[5px] ${
               activeButton === "weekly" ? "bg-hover text-white border-none" : ""
             }`}
             onClick={() => handleButtonClick("weekly")}
@@ -59,7 +59,7 @@ export default function Graphec() {
             Weekly
           </button>
           <button
-            className={`px-4 py-1 mx-2 border-[1px] border-black rounded-[5px] text-[14px] font-semibold capitalize ${
+            className={` py-1  w-[70px] mx-2 border-[1px] border-black rounded-[5px] text-[14px] font-semibold capitalize ${
               activeButton === "monthly"
                 ? "bg-hover text-white border-none"
                 : ""
@@ -69,7 +69,7 @@ export default function Graphec() {
             Monthly
           </button>
           <button
-            className={`px-4 py-1 mx-2 border-[1px] border-black rounded-[5px] text-[14px] font-semibold capitalize ${
+            className={`w-[70px] py-1 mx-2 border-[1px] border-black rounded-[5px] text-[14px] font-semibold capitalize ${
               activeButton === "yearly" ? "bg-hover text-white border-none" : ""
             }`}
             onClick={() => handleButtonClick("yearly")}

@@ -3,7 +3,7 @@ import Graphec from "./Dashboard/Graphec";
 
 export default function Statics() {
   return (
-    <div className="flex">
+    <div className="lg:flex">
       <Graphec />
       <BestSellers/>
     </div>

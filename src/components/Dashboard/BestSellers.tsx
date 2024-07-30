@@ -24,7 +24,7 @@ const data = [
 ];
 export default function BestSellers() {
   return (
-    <div className="bg-dash mt-[-35px]  font-kantumruy w-[30%] rounded-[10px] p-2 mr-3 ">
+    <div className="bg-dash lg:mt-[-35px] mt-10  font-kantumruy lg:w-[30%] rounded-[10px] p-2 mr-3 ">
       <div className="flex justify-between items-center">
       <h1 className="font-bold capitalize py-2">best sallers</h1>
       <SlOptionsVertical />

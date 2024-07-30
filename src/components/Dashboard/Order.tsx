@@ -136,7 +136,7 @@ export default function Order() {
   };
 
   return (
-    <div className="w-[98%] m-auto min-h-[350px] p-4 bg-dash rounded-[10px] my-3">
+    <div className="w-[98%] m-auto md:block hidden min-h-[350px] p-4 bg-dash rounded-[10px] my-3">
       <div className="flex justify-between capitalize font-kantumruy">
         <h1 className="capitalize font-bold">recent orders</h1>
         <SlOptionsVertical />
@@ -158,7 +158,7 @@ export default function Order() {
         <div key={index}>
           <div className="flex justify-between font-semibold">
             <div className="w-[150px] items-center flex">
-              <FaRegSquare className="mx-2" /> {item.products}
+              <FaRegSquare className="mx-2 " /> {item.products}
             </div>
             <div>{item.orderId}</div>
             <div className="text-center w-[100px]">{item.data}</div>
