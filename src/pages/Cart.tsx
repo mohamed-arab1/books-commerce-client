@@ -5,7 +5,7 @@ import { addToCart , deleteFromCart , clear , decreaseQuantity} from "../rtk/Car
 export default function Cart() {
 
     const cart = useSelector(state => state.cart);
-     console.log(cart)
+    //  console.log(cart)
 
     const dispatch = useDispatch();
     const totalPrice = cart.reduce((acc, product) => {

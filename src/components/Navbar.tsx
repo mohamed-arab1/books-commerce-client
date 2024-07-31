@@ -4,6 +4,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { RootState } from "../rtk/store";
+
 export default function Navbar() {
   const Links = [
     { id: 1, link: "Home", href: "/#home" },
