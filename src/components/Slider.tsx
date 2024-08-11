@@ -10,9 +10,9 @@ const pagingStyle = (active: boolean) => ({
   justifyContent: "center",
   color: active ? "black" : "white",
   background: active ? "#f3a847" : "#556170a4",
-  padding: "12px",
+  padding: "8px",
   cursor: "pointer",
-  border: "1px solid #f3a847",
+  // border: "1px solid #f3a847",
 });
 
 type SliderSectionProps = {
@@ -48,7 +48,7 @@ export const Slider = ({
       setDotActive(next / slidesToScroll);
     },
     customPaging: (i: number) => (
-      <div style={pagingStyle(i === dotActive)}>{i + 1}</div>
+      <div style={pagingStyle(i === dotActive)}></div>
     ),
     responsive: [
       {
