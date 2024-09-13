@@ -7,24 +7,33 @@ import { useState } from "react";
 import { addToCart } from "../rtk/CartSlice";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { addToWishList } from "../rtk/wishSlice";
+import { addToWishList, removeWishlist } from "../rtk/wishSlice";
 
 
 export default function Card({ book }: CardProps) {
   const dispatch = useDispatch();
   const navigate =useNavigate();
 
+  const addToWishListHandler = (book) => {
+    dispatch(addToWishList(book))
+  }
+  const removefromWishListHandler = (book) => {
+    dispatch(removeWishlist(book))
+  }
+
   const [favorite, setFavorite] = useState(false);
+
   const handelFavorite = () => {
-    favorite === true ? setFavorite(false) : setFavorite(true);
+    if(favorite){
+      removefromWishListHandler(book)
+    }else {
+      addToWishListHandler(book)
+    }
+    setFavorite(!favorite)
   };
 
   //add to wish list
 
-  const addToWishListHandler = ({book}:CardProps) => {
-    dispatch(addToWishList(book))
-    navigate('/wishlists')
-  }
 
 
   return (
@@ -41,11 +50,11 @@ export default function Card({ book }: CardProps) {
       <div className="flex flex-col gap-y-2">
         <Link to={`/books/${book._id}`}>
           <h4 className="font-DMSerifDisplay mt-5 text-18 tracking-wide">
-            {book.title.substring(0, 15)}
+            {book.title}
           </h4>
         </Link>
         <article className="font-raleway font-medium text-[15px]  leading-6">
-          {book.description.substring(0, 40)}
+          {book.description}
         </article>
         <div className="flex items-center justify-between">
           <span className="font-kantumruy font-medium ">${book.price}</span>
@@ -62,7 +71,7 @@ export default function Card({ book }: CardProps) {
             className="w-[40px] h-[40px] rounded-full"
           />
           <h1 className="font-DMSerifDisplay text-18">
-            {book.author.substring(0, 15)}
+            {book.author}
           </h1>
         </div>
       </div>
@@ -71,7 +80,7 @@ export default function Card({ book }: CardProps) {
         <button onClick={() => dispatch(addToCart(book))}>
           <BsCart3 className="text-[19px]  text-star" />
         </button>
-        <button onClick={() => addToWishListHandler(book)}>
+        <button onClick={handelFavorite}>
           {favorite ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
         </button>
       </div>

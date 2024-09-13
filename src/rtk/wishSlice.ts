@@ -6,30 +6,28 @@ import { createSlice } from "@reduxjs/toolkit";
     }
 
 export const wishSlice = createSlice({
-    initialState,
     name: "wishlists",
+    initialState,
     reducers: {
-
         //add to wish list 
 
         addToWishList: (state, action) => {
 
-            //if the item already exits
-            const exiteditemindex = state.wishlistsItems.findIndex(item => item?._id === action.payload?._id);
+            // //if the item already exits
+            const exiteditemindex = state.wishlistsItems?.findIndex((product) => product["_id"] === action.payload["_id"]);
 
             if (exiteditemindex >= 0) {
                 alert('You cannot add this to wishlists anymore it is already exit!');
             } else 
-            //add the book to wish list 
             {
-                let buildwishlistItem = { ...action.payload }
+            //add the book to wish list 
 
-                state.wishlistsItems.push(buildwishlistItem );
+                const buildwishlistItem = { ...action.payload }
+
+                state.wishlistsItems?.push(buildwishlistItem );
                 
                 localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistsItems));
-            }
-        },
-
+        } },
 
         //remove item from wishlist
 

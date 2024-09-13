@@ -10,7 +10,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <HelmetProvider>
         <App />
-       
       </HelmetProvider>
     </Provider>
   </React.StrictMode>

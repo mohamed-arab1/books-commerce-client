@@ -9,6 +9,7 @@ export default function Navbar() {
 
   const { wishlistitems } = useSelector((state)=>state?.wishlists)
 
+
   const Links = [
     { id: 1, link: "Home", href: "/#home" },
     { id: 2, link: "Contact", href: "/#contact" },
@@ -67,7 +68,7 @@ export default function Navbar() {
             to="/wishlist"
             className="hover:text-white hover:bg-[#A3D3FB] bg-white p-[10px] rounded text-[#202D40]"
           >
-            <button>Wishlist</button>
+            <button >Wishlist</button>
           </Link>
 
           <div className="ml-[20px] mr-[20px]">
